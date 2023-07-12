@@ -1,3 +1,4 @@
+from rest_framework.authentication import SessionAuthentication, BasicAuthentication, TokenAuthentication
 from rest_framework.permissions import IsAuthenticated
 from rest_framework.viewsets import ModelViewSet
 from staff.serializers import TeamListSerializer, TeamDetailSerializer, EmployeeListSerializer, EmployeeDetailSerializer
@@ -29,10 +30,16 @@ class AllEmployeeViewset(MultipleSerializerMixin, ModelViewSet):
     serializer_class = EmployeeListSerializer
     detail_serializer_class = EmployeeDetailSerializer
 
+    # authentication_classes = [SessionAuthentication, BasicAuthentication, TokenAuthentication]
     permission_classes = [IsAuthenticated & IsManagementTeamMember]
 
     def get_queryset(self):
         return Employee.objects.all()
+
+
+    # def perform_create(self, serializer):
+    #     team = Team.objects.get(id=self.kwargs['team_pk'])
+    #     serializer.save(team=team)
 
 
 class EmployeeViewset(MultipleSerializerMixin, ModelViewSet):
@@ -43,3 +50,8 @@ class EmployeeViewset(MultipleSerializerMixin, ModelViewSet):
 
     def get_queryset(self):
         return Employee.objects.filter(team_id=self.kwargs['team_pk'])
+
+    def get_serializer_context(self):
+        context = super().get_serializer_context()
+        context['team_id'] = self.kwargs['team_pk']
+        return context

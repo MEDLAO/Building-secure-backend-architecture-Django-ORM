@@ -14,7 +14,6 @@ class Team(models.Model):
         SUPPORT = 'Support'
 
     department = models.CharField(choices=Department.choices, max_length=10)
-    manager = models.OneToOneField(to=settings.AUTH_USER_MODEL, on_delete=models.CASCADE)
     name = models.CharField(max_length=50, blank=True)
     email_team = models.EmailField(unique=True)
     phone = PhoneNumberField(null=False, blank=True, unique=True)

@@ -1,6 +1,6 @@
 from rest_framework import permissions
 from rest_framework.permissions import BasePermission
-from staff.models import Employee
+from staff.models import Team, Employee
 
 
 class IsAdminAuthenticated(BasePermission):

@@ -47,6 +47,11 @@ class ContractViewset(MultipleSerializerMixin, ModelViewSet):
     def get_queryset(self):
         return Contract.objects.filter(customer_id=self.kwargs['customer_pk'])
 
+    def get_serializer_context(self):
+        context = super().get_serializer_context()
+        context['customer_id'] = self.kwargs['customer_pk']
+        return context
+
 
 class AllEventViewset(MultipleSerializerMixin, ModelViewSet):
     serializer_class = EventListSerializer
@@ -66,3 +71,8 @@ class EventViewset(MultipleSerializerMixin, ModelViewSet):
 
     def get_queryset(self):
         return Event.objects.filter(contract_id=self.kwargs['contract_pk'])
+
+    def get_serializer_context(self):
+        context = super().get_serializer_context()
+        context['contract_id'] = self.kwargs['contract_pk']
+        return context

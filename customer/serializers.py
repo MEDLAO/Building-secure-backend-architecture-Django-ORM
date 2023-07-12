@@ -44,6 +44,22 @@ class ContractDetailSerializer(ModelSerializer):
         serializer = EventListSerializer(queryset, many=True)
         return serializer.data
 
+    def validate_customer(self, value):
+        customer = Customer.objects.get(id=self.context['customer_id'])
+        if value == customer:
+            return value
+        raise serializers.ValidationError('Wrong customer !')
+
+    def validate_sales_employee(self, value):
+        if value.team.department == "Sales":
+            return value
+        raise serializers.ValidationError("This employee doesn't belong to Sales Team ")
+
+    def validate_support_employee(self, value):
+        if value.team.department == "Support":
+            return value
+        raise serializers.ValidationError("This employee doesn't belong to Support Team ")
+
 
 class EventListSerializer(ModelSerializer):
     class Meta:
@@ -55,3 +71,9 @@ class EventDetailSerializer(ModelSerializer):
     class Meta:
         model = Event
         fields = ['id', 'name', 'description', 'start_date', 'end_date', 'contract']
+
+    def validate_contract(self, value):
+        contract = Contract.objects.get(id=self.context['contract_id'])
+        if value == contract:
+            return value
+        raise serializers.ValidationError('Wrong contract !')

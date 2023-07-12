@@ -10,8 +10,8 @@ class CustomUserAdmin(UserAdmin):
     add_form = CustomUserCreationForm
     form = CustomUserChangeForm
     model = User
-    list_display = ("email", "is_staff", "is_active", "first_name", "last_name")
-    list_filter = ("email", "is_staff", "is_active", "first_name", "last_name")
+    list_display = ("id", "email", "is_staff", "is_active", "first_name", "last_name")
+    list_filter = ("id", "email", "is_staff", "is_active", "first_name", "last_name")
     fieldsets = (
         (None, {"fields": ("email", "password", "first_name", "last_name")}),
         ("Permissions", {"fields": ("is_staff", "is_active", "groups", "user_permissions")}),
@@ -30,12 +30,12 @@ class CustomUserAdmin(UserAdmin):
 
 class UserAdmin(admin.ModelAdmin):
 
-    list_display = ('first_name', 'last_name', 'email')
+    list_display = ('id', 'first_name', 'last_name', 'email')
 
 
 class TeamAdmin(admin.ModelAdmin):
 
-    list_display = ('id', 'manager', 'department', 'name', 'email_team', 'phone',)
+    list_display = ('id', 'department', 'name', 'email_team', 'phone',)
 
 
 class EmployeeAdmin(admin.ModelAdmin):
