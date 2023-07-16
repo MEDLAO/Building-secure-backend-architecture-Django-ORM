@@ -36,7 +36,6 @@ second_router.register('contracts', ContractViewset, basename='customer-contract
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('api-auth/', include('rest_framework.urls')),
     path('', include('user.urls')),
     path('api/', include(first_router.urls)),
     path('api/all-teams/<int:team_pk>/', include(second_router.urls)),

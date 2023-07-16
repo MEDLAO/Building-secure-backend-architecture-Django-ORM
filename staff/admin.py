@@ -1,9 +1,12 @@
 from django.contrib import admin
 from django.contrib.auth.admin import UserAdmin
+from rest_framework.permissions import IsAuthenticated
 from user.models import User
 from customer.models import Customer, Contract, Event
 from staff.models import Team, Employee
 from user.forms import CustomUserCreationForm, CustomUserChangeForm
+
+from user.permissions import IsManagementTeamMember
 
 
 class CustomUserAdmin(UserAdmin):
