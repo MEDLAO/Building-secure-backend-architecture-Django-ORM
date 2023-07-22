@@ -1,6 +1,5 @@
-from rest_framework import permissions
 from rest_framework.permissions import BasePermission
-from staff.models import Team, Employee
+from staff.models import Employee
 
 
 class IsAdminAuthenticated(BasePermission):
@@ -14,10 +13,12 @@ class IsManagementTeamMember(BasePermission):
     message = "You don't belong to Management Team"
 
     def has_permission(self, request, view):
-        if request.method == 'POST' or view.action == 'list':
-            management_team_employees = Employee.objects.filter(team__department='Management')
-            return request.user.employee in management_team_employees
-        return True
+        # if request.method == 'POST' or view.action == 'list':
+        #     management_team_employees = Employee.objects.filter(team__department='Management')
+        #     return request.user.employee in management_team_employees
+        # return request.user.is_authenticated
+        management_team_employees = Employee.objects.filter(team__department='Management')
+        return request.user.employee in management_team_employees
 
     def has_object_permission(self, request, view, obj):
         management_team_employees = Employee.objects.filter(team__department='Management')
@@ -29,10 +30,12 @@ class IsSalesTeamMember(BasePermission):
     message = "You don't belong to Sales Team"
 
     def has_permission(self, request, view):
-        if request.method == 'POST' or view.action == 'list':
-            sales_team_employees = Employee.objects.filter(team__department='Sales')
-            return request.user.employee in sales_team_employees
-        return True
+        # if request.method == 'POST' or view.action == 'list':
+        #     sales_team_employees = Employee.objects.filter(team__department='Sales')
+        #     return request.user.employee in sales_team_employees
+        # return True
+        sales_team_employees = Employee.objects.filter(team__department='Sales')
+        return request.user.employee in sales_team_employees
 
     def has_object_permission(self, request, view, obj):
         sales_team_employees = Employee.objects.filter(team__department='Sales')
@@ -48,9 +51,10 @@ class IsSupportTeamMember(BasePermission):
     message = "You don't belong to Support Team"
 
     def has_permission(self, request, view):
+        support_team_employees = Employee.objects.filter(team__department='Support')
         if request.method == 'POST':
             return False
-        return True
+        return request.user.employee in support_team_employees
 
     def has_object_permission(self, request, view, obj):
         support_team_employees = Employee.objects.filter(team__department='Support')

@@ -30,16 +30,10 @@ class AllEmployeeViewset(MultipleSerializerMixin, ModelViewSet):
     serializer_class = EmployeeListSerializer
     detail_serializer_class = EmployeeDetailSerializer
 
-    # authentication_classes = [SessionAuthentication, BasicAuthentication, TokenAuthentication]
     permission_classes = [IsAuthenticated & IsManagementTeamMember]
 
     def get_queryset(self):
         return Employee.objects.all()
-
-
-    # def perform_create(self, serializer):
-    #     team = Team.objects.get(id=self.kwargs['team_pk'])
-    #     serializer.save(team=team)
 
 
 class EmployeeViewset(MultipleSerializerMixin, ModelViewSet):

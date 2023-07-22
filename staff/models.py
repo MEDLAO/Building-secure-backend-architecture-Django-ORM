@@ -38,4 +38,3 @@ class Employee(models.Model):
     team = models.ForeignKey(to=Team, on_delete=models.CASCADE, related_name='employees')
     is_staff = models.BooleanField(default=True)
     is_admin = models.BooleanField(default=True)
-

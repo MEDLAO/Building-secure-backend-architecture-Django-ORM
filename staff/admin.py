@@ -1,12 +1,9 @@
 from django.contrib import admin
 from django.contrib.auth.admin import UserAdmin
-from rest_framework.permissions import IsAuthenticated
 from user.models import User
 from customer.models import Customer, Contract, Event
 from staff.models import Team, Employee
 from user.forms import CustomUserCreationForm, CustomUserChangeForm
-
-from user.permissions import IsManagementTeamMember
 
 
 class CustomUserAdmin(UserAdmin):
@@ -53,7 +50,16 @@ class CustomerAdmin(admin.ModelAdmin):
 
 class ContractAdmin(admin.ModelAdmin):
 
-    list_display = ('id', 'status_contract', 'name', 'description', 'signing_date', 'customer', 'sales_employee', 'support_employee',)
+    list_display = (
+        'id',
+        'status_contract',
+        'name',
+        'description',
+        'signing_date',
+        'customer',
+        'sales_employee',
+        'support_employee',
+    )
 
 
 class EventAdmin(admin.ModelAdmin):

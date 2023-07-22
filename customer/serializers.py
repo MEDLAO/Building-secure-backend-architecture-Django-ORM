@@ -37,7 +37,16 @@ class ContractDetailSerializer(ModelSerializer):
 
     class Meta:
         model = Contract
-        fields = ['id', 'name', 'signing_date', 'customer', 'description', 'sales_employee', 'support_employee', 'event']
+        fields = [
+            'id',
+            'name',
+            'signing_date',
+            'customer',
+            'description',
+            'sales_employee',
+            'support_employee',
+            'event'
+        ]
 
     def get_event(self, instance):
         queryset = instance.event.all()
