@@ -2,7 +2,12 @@
 
 [**English**](README.md)
 <p>
-  <img src="pictures/.png" />
+  <img src="pictures/epicevents-diagram-1.png" width="250" height="170" />
+  <img src="pictures/epicevents-diagram-2.png" width="250" height="170" />
+  <img src="pictures/epicevents-diagram-3.png" width="250" height="170" />
+  <img src="pictures/epicevents-switch-db.png" width="250" height="170" />
+  <img src="pictures/epicevents-django-admin.png" width="250" height="170" />
+  <img src="pictures/epicevents-doc.png" width="250" height="170" />
 </p>
 
 ### Tables des matières :
