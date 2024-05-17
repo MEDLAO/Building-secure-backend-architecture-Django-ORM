@@ -1,41 +1,40 @@
-## Projet : Développez une architecture back-end sécurisée en utilisant Django ORM
-### Tables des matières :
-1. Description générale du projet.
-2. Configurations compatibles.
-3. Installation du programme.
-4. Fonctionnalités.
-5. Authentification et permissions.
-6. Démarrage du programme.
-7. Gestion des utilsateurs via Django Admin Site.
+## Project : Develop a secure back-end architecture using Django ORM
 
-## 1. Descripton générale du projet :
+### Table of contents :
+1. Project description/Scenario.
+2. Compatible configurations.
+3. Installing the program.
+4. Features.
+5. Authentication and permissions.
+6. Running the program.
+7. User Management via Django Admin Site.
 
-Ce projet a été réalisé dans le cadre de la formation de
-développeur Python proposée par OpenClassrooms. 
+## 1. Project description/Scenario :
 
-Epic Events, une entreprise de conseil et de gestion d'événements réputée pour ses "fêtes épiques", est confrontée à 
-une situation urgente suite à une cyberattaque sur le fournisseur externe auquel nous faisions appel pour notre CRM. 
-Cette attaque compromettant l'intégrité de certaines informations clients, il est impératif d'agir rapidement 
-pour restaurer la confiance de notre clientèle.
+This project was carried out as part of the Python Developer training offered by OpenClassrooms.
 
-Afin de faire face à ce défi de manière proactive, Epic Events a pris la décision de développer en interne
-un système CRM sécurisé. Cette initiative vise à rassurer nos clients quant à la sécurité de leurs données
-et à démontrer notre engagement envers la gestion professionnelle de leurs événements.
+Epic Events, a renowned event consulting and management company known for its "epic parties,"
+is facing an urgent situation following a cyberattack on the external provider 
+we relied on for our CRM. This attack has compromised the integrity of some customer information,
+making it imperative to act swiftly to restore our clients' trust.
 
-Pour mener à bien ce projet, il m’a été confié la conception de la première version du CRM. 
-Cette solution sur mesure répondra aux besoins spécifiques de notre entreprise 
-et contribuera à consolider notre réputation en tant que prestataire de choix pour des événements d'exception. 
+To proactively address this challenge, Epic Events has decided to develop
+a secure in-house CRM system. This initiative aims to reassure our clients about the safety
+of their data and demonstrate our commitment to the professional management of their events.
 
+To achieve this goal, I have been entrusted with designing the first version of the CRM. 
+This custom solution will meet the specific needs of our company and help solidify our reputation
+as a leading provider for exceptional events. 
 
-## 2. Configurations compatibles :
+## 2. Compatible configurations :
 
 * Python 3
 * Windows 10
 * MacOS
 * Linux
 
-## 3. Installation du programme :
-Ce programme utilise les librairies Python suivantes :
+## 3. Installing the program :
+This program uses the following Python libraries :
 
 ```
 asgiref 3.7.2
@@ -69,52 +68,52 @@ urllib3 1.26.6
 
 ```
 
-## 4. Fonctionnalités :
+## 4. Features :
 
-### Accès aux différentes données via les  points de terminaison qui sont répartis en quatre catégories : 
+### Access to data through endpoints, which are divided into four categories : 
 
-  * Authentification
-  * Équipes-Employés
-  * Clients-Contrats
-  * Contrats-Événements
+  * Authentication
+  * Teams-Employees
+  * Customers-Contracts
+  * Contracts-Events
 
-  Pour une explication détaillée de l'API et de ses "endpoints",
-  consulter la [**documentation**](https://documenter.getpostman.com/view/25420128/2s946cfDj2).
+  For a detailed explanation of the API and its endpoints, refer to the [**documentation**](https://documenter.getpostman.com/view/25420128/2s946cfDj2).
 
-## 5. Authentification et permissions :
+## 5. Authentication and permissions :
     
-  * L'**authentification** pour le back-end est assurée par **Django Rest Authentication**.
-  * Pour la partie **autorisation** et **accès**, plusieurs **permissions** ont été mises en place selon le statut de
-l'utilisateur effectuant la requête et conformément au cahier des charges.
+  * The **authentication** for the back-end is provided by Django Rest Framework Authentication.
+  * For the **authorization** and **access** part, various **permissions** have been implemented
+  according to the status of the user making the request and in accordance with the specifications.
 
-## 6. Démarrage du programme :
+## 6. Running the program :
 
-1. Ouvrir un terminal (ex: Cygwin pour Windows, le terminal pour MacOS) ou dans un IDE (ex: PyCharm).
-2. Cloner le repository dans un répertoire local :
+1. Open a terminal (e.g., Cygwin for Windows, the Terminal for Mac) or in an IDE (e.g., PyCharm).
+2. Clone the repository into a local directory :
   > $<b> git clone repository path</b> 
-3. Se placer dans ce dossier sur le terminal.
-4. Créer un environnement virtuel avec :
+3. Navigate to this folder in the terminal.
+4. Create a virtual environment with :
   > $<b> python -m venv <nom de l'environnement></b> 
-5. Activer l'environnement virtuel en éxécutant :
+5. Activate the virtual environment via :
   > $ <b>source env/bin/activate</b>  (sur MacOS et Linux) 
 
   > $ <b>env\Scripts\activate.bat</b> (sur Windows)
-6. Installer les paquets présents dans le fichier requirements.txt (ce fichier se trouve dans le dossier du projet) avec :
+6. Install the packages present in the requirements.txt file (this file is located in the project
+folder with main.py) with:
   > $ <b>pip install -r requirements.txt</b> 
-7. Finalement, exécuter le serveur de développement avec :
+7. Run the development server with:
 > $ <b>python manage.py runserver</b>
-8. Consulter le site à l'adresse suivante et accéder aux différents endpoints :
+8. Visit the site at the following address and access the various endpoints:
 
       **http://127.0.0.1:8000/**
 
-## 7. Gestion des utilisateurs via Django Admin Site :
+## 7. User Management via Django Admin Site :
 
-1. Créer un Super User avec la commande suivante :
+1. Create a Super User with the following command :
  > $ <b>python manage.py createsuperuser </b> 
-2. Se connecter avec cet utilisateur à cette adresse :
+2. Log in with this user at this address :
  **http://127.0.0.1:8000/admin/**
-3. Seul ce Super User aura un accès complet à l'application et aux différentes opérations C.R.U.D .
-Il pourra, lors de la création d'un nouvel utilisateur le placer dans l'un des trois groupes de permissions présents :
+3. Only this Super User will have full access to the application and the various CRUD operations.
+When creating a new user, they can assign the user to one of the three available permission groups:
 
    * Management-Team
    * Sales-Team
