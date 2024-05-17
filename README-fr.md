@@ -1,4 +1,10 @@
 ## Projet : Développez une architecture back-end sécurisée en utilisant Django ORM
+
+[**English**](README.md)
+<p>
+  <img src="pictures/.png" />
+</p>
+
 ### Tables des matières :
 1. Description générale du projet/Scénario.
 2. Configurations compatibles.

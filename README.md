@@ -1,5 +1,15 @@
 ## Project : Develop a secure back-end architecture using Django ORM
 
+[**Français**](README-fr.md)
+<p>
+  <img src="pictures/epicevents-diagram-1.png" width="250" height="170" />
+  <img src="pictures/epicevents-diagram-2.png" width="250" height="170" />
+  <img src="pictures/epicevents-diagram-3.png" width="250" height="170" />
+  <img src="pictures/epicevents-switch-db.png" width="250" height="170" />
+  <img src="pictures/epicevents-django-admin.png" width="250" height="170" />
+  <img src="pictures/epicevents-doc.png" width="250" height="170" />
+</p>
+
 ### Table of contents :
 1. Project description/Scenario.
 2. Compatible configurations.
@@ -22,7 +32,7 @@ To proactively address this challenge, Epic Events has decided to develop
 a secure in-house CRM system. This initiative aims to reassure our clients about the safety
 of their data and demonstrate our commitment to the professional management of their events.
 
-To achieve this goal, I have been entrusted with designing the first version of the CRM. 
+In order to achieve this goal, I have been entrusted with designing the first version of the CRM. 
 This custom solution will meet the specific needs of our company and help solidify our reputation
 as a leading provider for exceptional events. 
 
